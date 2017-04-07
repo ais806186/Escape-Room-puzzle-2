@@ -7,11 +7,16 @@ var lock2;
 var lock3;
 var permanentLock1;
 var permanentLock2;
+var permanentLock3;
 
 var stickLocation1X;
 var stickLocation1Y;
+
 var stickLocation2X;
 var stickLocation2Y;
+
+var stickLocation3X;
+var stickLocation3Y;
 
 var itemGrid;
 function preload()
@@ -32,6 +37,9 @@ function setup()
   
   stickLocation2X = 326;
   stickLocation2Y = 288;
+
+  stickLocation3X = 428;
+  stickLocation3Y = 335;
   
   lock = false;
   lock2 = false;
@@ -50,7 +58,7 @@ function draw()
   //j
   ellipse(325,288,30,30);
 //s
-  ellipse(429,336,30,30);
+  ellipse(428,335,30,30);
 
 //big box
   fill(125,125,125);
@@ -74,7 +82,7 @@ fill(50,50,50);
   rect(540,465,55,55);
 
   moveellipse1();
-  changeellipseOrientation1();
+  changeellipse();
    fill(0,0,0);
   text("Mouse X "+mouseX,10,330);
   text("Mouse Y "+mouseY,10,290)
@@ -83,16 +91,21 @@ fill(50,50,50);
   ellipse(stickLocation1X,stickLocation1Y,30,30);
 
   ellipse(stickLocation2X,stickLocation2Y,30,30);
-  
+
+  ellipse(stickLocation3X,stickLocation3Y,30,30);
+
+
 }
 
 function moveellipse1()
 {
   if (permanentLock1 == false)
+fill(100,100,100);
+ ellipseDistance = sqrt((ellipseX-mouseX)*(ellipseX-mouseX)+(ellipseY-mouseY)*(ellipseY-mouseY))
+if(ellipseDistance< 20)
 
     {
-      fill(100,100,100);
-      if (mouseX>226 && mouseX < 264 && mouseY >478 && mouseY < 516 && mouseIsPressed == true && mouseButton == LEFT && keyIsPressed == false && lock == false && lock2 == false)
+      if (mouseIsPressed == true && mouseButton == LEFT && keyIsPressed == false && lock == false && lock2 == false)
       {
         lock = true;
       }
@@ -105,26 +118,40 @@ function moveellipse1()
       ellipseY = mouseY;
 
       stickDistance = sqrt((stickLocation1X-mouseX)*(stickLocation1X-mouseX)+(stickLocation1Y-mouseY)*(stickLocation1Y-mouseY))
+stickDistance2 = sqrt((stickLocation2X-mouseX)*(stickLocation2X-mouseX)+(stickLocation2Y-mouseY)*(stickLocation2Y-mouseY))
+stickDistance3 = sqrt((stickLocation3X-mouseX)*(stickLocation3X-mouseX)+(stickLocation3Y-mouseY)*(stickLocation3Y-mouseY))
 
-      if (stickDistance < 15)
+      if (stickDistance < 10)
       {
         fill(255,255,255);
         ellipseX = stickLocation1X;
         ellipseY = stickLocation1Y;
         permanentLock1 = true;
       }
+      else if(stickDistance2 < 10)
+      {
+
+         fill(255,255,255);
+        ellipseX = stickLocation2X;
+        ellipseY = stickLocation2Y;
+        permanentLock2 = true;
+      }
+
+      if(stickDistance3 < 20)
+      {
+        fill(255,255,255)
+        ellipseX = stickLocation3X;
+        ellipseY = stickLocation3Y;
+        permanentLock3 = true; 
+      }
+
     }
 
 }
 
 
-function changeellipseOrientation1()
+function changeellipse()
 {
-  ellipseDistance = 50
-
-  if (ellipseDistance < 30)
-  {
-  
   
     if (mouseIsPressed == true && mouseButton == LEFT && keyIsPressed == true && lockellipseOrientation == false)
     {
@@ -133,15 +160,12 @@ function changeellipseOrientation1()
 
       lockellipseOrientation = true;
     }
-  }
   
   if (ellipseOrientation == 0)
   {
     ellipse(ellipseX,ellipseY,40,40);
   }
  
-
-  
 }
 
 
