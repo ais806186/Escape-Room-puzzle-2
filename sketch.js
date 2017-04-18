@@ -2,12 +2,18 @@
 var ellipseX;
 var ellipseY;
 
+var ellipse2X; 
+var ellipse2Y; 
+
 var lock;
 var lock2;
 var lock3;
 var permanentLock1;
 var permanentLock2;
 var permanentLock3;
+
+var stickLocation0X;
+var stickLocation0Y;
 
 var stickLocation1X;
 var stickLocation1Y;
@@ -31,6 +37,11 @@ function setup()
   ellipseX = 244;
   ellipseY = 494;
 
+ellipse2X = 320;
+ellipse2Y = 494;
+
+stickLocation0X = 280;
+stickLocation0Y = 149;
   
   stickLocation1X = 223;
   stickLocation1Y = 240;
@@ -105,7 +116,7 @@ fill(100,100,100);
 if(ellipseDistance< 20)
 
     {
-      if (mouseIsPressed == true && mouseButton == LEFT && keyIsPressed == false && lock == false && lock2 == false)
+      if (mouseIsPressed == true && mouseButton == LEFT && lock == false && lock2 == false)
       {
         lock = true;
       }
@@ -117,7 +128,7 @@ if(ellipseDistance< 20)
       ellipseX = mouseX;
       ellipseY = mouseY;
 
-      stickDistance = sqrt((stickLocation1X-mouseX)*(stickLocation1X-mouseX)+(stickLocation1Y-mouseY)*(stickLocation1Y-mouseY))
+stickDistance = sqrt((stickLocation1X-mouseX)*(stickLocation1X-mouseX)+(stickLocation1Y-mouseY)*(stickLocation1Y-mouseY))
 stickDistance2 = sqrt((stickLocation2X-mouseX)*(stickLocation2X-mouseX)+(stickLocation2Y-mouseY)*(stickLocation2Y-mouseY))
 stickDistance3 = sqrt((stickLocation3X-mouseX)*(stickLocation3X-mouseX)+(stickLocation3Y-mouseY)*(stickLocation3Y-mouseY))
 
