@@ -28,14 +28,16 @@ var itemGrid;
 function preload()
 {
   codemachine = loadImage('https://dl.dropbox.com/s/mk87rtn5h68xlt1/page5-screenshot_1.png?dl=0');
+  button1 = loadImage('https://dl.dropbox.com/s/1m9y12sdyyr3qy4/typewriter%20key.png')
 }
+
 
 function setup()
 {
   createCanvas(700,700);
   ellipseOrientation = 0;
-  ellipseX = 244;
-  ellipseY = 494;
+  ellipseX = 240;
+  ellipseY = 490;
 
 ellipse2X = 320;
 ellipse2Y = 494;
@@ -164,7 +166,7 @@ stickDistance3 = sqrt((stickLocation3X-mouseX)*(stickLocation3X-mouseX)+(stickLo
 function changeellipse()
 {
   
-    if (mouseIsPressed == true && mouseButton == LEFT && keyIsPressed == true && lockellipseOrientation == false)
+    if (mouseIsPressed == true && mouseButton == LEFT && lockellipseOrientation == false)
     {
   
           ellipseOrientation = 0;
@@ -174,7 +176,7 @@ function changeellipse()
   
   if (ellipseOrientation == 0)
   {
-    ellipse(ellipseX,ellipseY,40,40);
+    image(button1,ellipseX-20,ellipseY-20,40,40);
   }
  
 }
