@@ -27,14 +27,18 @@ var stickLocation3Y;
 var itemGrid;
 function preload()
 {
+  typewriter = loadImage('https://dl.dropbox.com/s/w7y7g08g2peuypz/Typewriter.jpg')
   codemachine = loadImage('https://dl.dropbox.com/s/mk87rtn5h68xlt1/page5-screenshot_1.png?dl=0');
   button1 = loadImage('https://dl.dropbox.com/s/1m9y12sdyyr3qy4/typewriter%20key.png')
+  a = loadImage('https://dl.dropbox.com/s/p7w72p2jevho9q1/a.png')
+
+  e = loadImage('https://dl.dropbox.com/s/54mf7t3mlrne97f/e.png');
 }
 
 
 function setup()
 {
-  createCanvas(700,700);
+  createCanvas(800,600);
   ellipseOrientation = 0;
   ellipseX = 240;
   ellipseY = 490;
@@ -45,14 +49,15 @@ ellipse2Y = 494;
 stickLocation0X = 280;
 stickLocation0Y = 149;
   
-  stickLocation1X = 223;
-  stickLocation1Y = 240;
+  stickLocation1X = 290;
+  stickLocation1Y = 228;
   
   stickLocation2X = 326;
   stickLocation2Y = 288;
 
   stickLocation3X = 428;
   stickLocation3Y = 335;
+  
   
   lock = false;
   lock2 = false;
@@ -64,10 +69,10 @@ stickLocation0Y = 149;
 function draw()
 {
   background(255,255,255);
-  image(codemachine,180,100);
+  image(typewriter,180,100);
   fill(0,0,0);
   //a
-  ellipse(223,240,30,30);
+  rect(272,210,35,35);
   //j
   ellipse(325,288,30,30);
 //s
@@ -101,6 +106,7 @@ fill(50,50,50);
   text("Mouse Y "+mouseY,10,290)
 
   fill(0,0,0,0);
+  stroke(255,255,255,0);
   ellipse(stickLocation1X,stickLocation1Y,30,30);
 
   ellipse(stickLocation2X,stickLocation2Y,30,30);
@@ -176,7 +182,7 @@ function changeellipse()
   
   if (ellipseOrientation == 0)
   {
-    image(button1,ellipseX-20,ellipseY-20,40,40);
+    image(a,ellipseX-20,ellipseY-20,40,40);
   }
  
 }
